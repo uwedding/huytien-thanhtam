@@ -263,20 +263,23 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 
 window.addEventListener('DOMContentLoaded', function () {
-  // Lấy tham số name từ URL
   const params = new URLSearchParams(window.location.search);
-  // const name = params.get('name');
-  const target = params.get('target')
+  const target = params.get('target');
   const groomEls = document.querySelectorAll(".groom");
   const brideEls = document.querySelectorAll(".bride");
+  const mapBtn = document.getElementById("GROUP80");
 
   if (target === "bride") {
     // Hiện bride
     brideEls.forEach(el => el.style.display = "block");
     groomEls.forEach(el => el.style.display = "none");
+    // Đổi link chỉ đường sang nhà gái
+    if (mapBtn) mapBtn.href = "https://maps.app.goo.gl/cEHEmdrQjhUnZxAG7?g_st=ic";
   } else {
     // Mặc định hiện groom
     groomEls.forEach(el => el.style.display = "block");
     brideEls.forEach(el => el.style.display = "none");
+    // Đổi link chỉ đường sang nhà trai
+    if (mapBtn) mapBtn.href = "https://maps.app.goo.gl/bTTuDUXraGiyx1iR7?g_st=ic";
   }
 });
